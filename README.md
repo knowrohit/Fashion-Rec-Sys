@@ -6,7 +6,7 @@ FashionGPT uses a pre-trained ResNet50 model as a feature extractor to analyze t
 
 
 ## Main Screen
-![Main Screen](iamges/Screen Shot 2023-04-25 at 11.07.37 AM.png)
+![Main Screen](images/Screen Shot 2023-04-25 at 11.07.37 AM.png)
 
 
 ## Key Features
