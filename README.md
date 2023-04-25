@@ -4,6 +4,11 @@
 
 FashionGPT uses a pre-trained ResNet50 model as a feature extractor to analyze the visual aspects of a user's selected image. It then compares the extracted features with a database of product images to find the most visually similar items. The Nearest Neighbors algorithm is employed to identify the top 5 matching products based on their similarity scores.
 
+
+## Main Screen
+![Main Screen](iamges/Screen Shot 2023-04-25 at 11.07.37 AM.png)
+
+
 ## Key Features
 
 - State-of-the-art deep learning model for feature extraction
@@ -12,9 +17,19 @@ FashionGPT uses a pre-trained ResNet50 model as a feature extractor to analyze t
 - Wide range of supported fashion products
 - Continually updated and refined to deliver the best results
 
+## Product Recommendations
+![Product Recommendations](images/Screen Shot 2023-04-25 at 11.11.12 AM.png)
+
+![Product Recommendations](images/Screen Shot 2023-04-25 at 11.13.41 AM.png)
+
+![Product Recommendations](images/Screen Shot 2023-04-25 at 11.15.38 AM.png)
+
 ## Developer
 
 FashionGPT is developed by a dedicated AI enthusiast and fashion aficionado, who believe in harnessing the power of technology to improve the shopping experience for users. He is committed to delivering innovative solutions that help users find their ideal fashion products with ease and accuracy.
+
+## Stats for Nerds
+![Stats for Nerds](images/Screen Shot 2023-04-25 at 11.13.57 AM.png)
 
 ## Contact Us
 
