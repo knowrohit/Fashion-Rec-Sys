@@ -64,7 +64,7 @@ elif choice == "About":
         st.subheader("About FashionGPT")
         html_temp_about1= """<div style="background-color:#0a2342;padding:10px">
                                     <h4 style="color:white;text-align:center;">
-                                    StyleGuru: A Product Recommender System using Transfer Learning</h4>
+                                    FashionGPT: A Product Recommender System using Transfer Learning</h4>
                                     </div>
                                     </br>"""
         st.markdown(html_temp_about1, unsafe_allow_html=True)
