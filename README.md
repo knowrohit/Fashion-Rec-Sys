@@ -6,8 +6,8 @@ FashionGPT uses a pre-trained ResNet50 model as a feature extractor to analyze t
 
 
 ## Main Screen
-![Main Screen](images/Screen Shot 2023-04-25 at 11.07.37 AM.png)
-
+![Main Screen](images/img2.png) 
+![About](images/image1.png)
 
 ## Key Features
 
@@ -18,18 +18,18 @@ FashionGPT uses a pre-trained ResNet50 model as a feature extractor to analyze t
 - Continually updated and refined to deliver the best results
 
 ## Product Recommendations
-![Product Recommendations](images/Screen Shot 2023-04-25 at 11.11.12 AM.png)
+![Product Recommendations](images/img4.png)
 
-![Product Recommendations](images/Screen Shot 2023-04-25 at 11.13.41 AM.png)
+![Product Recommendations](images/img5.png)
 
-![Product Recommendations](images/Screen Shot 2023-04-25 at 11.15.38 AM.png)
+![Product Recommendations](images/img7.png)
 
 ## Developer
 
 FashionGPT is developed by a dedicated AI enthusiast and fashion aficionado, who believe in harnessing the power of technology to improve the shopping experience for users. He is committed to delivering innovative solutions that help users find their ideal fashion products with ease and accuracy.
 
 ## Stats for Nerds
-![Stats for Nerds](images/Screen Shot 2023-04-25 at 11.13.57 AM.png)
+![Stats for Nerds](images/img6.png)
 
 ## Contact Us
 
