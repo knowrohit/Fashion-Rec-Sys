@@ -1,5 +1,7 @@
 # FashionGPT: AI-Powered Fashion Recommender System
 
+Yo whats good boys! The "GPT" part is kinda part of a bigger project where ill be adding a chatbot assistant powered by GPT-NEOx as a private concierge. It will act as a guide + hype beast friend. 
+
 ## How it Works
 
 FashionGPT uses a pre-trained ResNet50 model as a feature extractor to analyze the visual aspects of a user's selected image. It then compares the extracted features with a database of product images to find the most visually similar items. The Nearest Neighbors algorithm is employed to identify the top 5 matching products based on their similarity scores.
