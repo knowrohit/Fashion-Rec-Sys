@@ -16,10 +16,10 @@ COPY data /app/data
 RUN pip install -r requirements.txt
 
 # Make port 8501 available to the world outside this container
-EXPOSE 8501
+EXPOSE 8509
 
 # Define environment variable
 ENV NAME World
 
 # Run app.py when the container launches
-CMD ["streamlit", "run", "app.py"]
+CMD ["streamlit", "run", "--server.port", "8509", "app.py"]
