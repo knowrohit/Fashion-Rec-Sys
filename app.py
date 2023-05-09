@@ -1,4 +1,5 @@
-
+from colorthief import ColorThief  # Add this line
+import matplotlib.pyplot as plt  # Add this line
 import streamlit as st
 import os
 from PIL import Image
@@ -125,13 +126,32 @@ def feature_extraction(img_path,model):
 
     return normalized_result
 
-def recommend(features,feature_list):
-    neighbors = NearestNeighbors(n_neighbors=6, algorithm='brute', metric='cosine')
+
+def display_color_palette(img_path, num_colors=5):
+    color_thief = ColorThief(img_path)
+    palette = color_thief.get_palette(color_count=num_colors)
+    plt.figure(figsize=(5, 1))
+    plt.bar(range(num_colors), [1] * num_colors, color=[f'#{c[0]:02x}{c[1]:02x}{c[2]:02x}' for c in palette], width=1)
+    plt.axis('off')
+    st.pyplot(plt.gcf())
+    plt.close()
+
+# def recommend(features,feature_list):
+#     neighbors = NearestNeighbors(n_neighbors=6, algorithm='brute', metric='cosine')
+#     neighbors.fit(feature_list)
+
+#     distances, indices = neighbors.kneighbors([features])
+
+#     return indices, distances
+
+def recommend(features, feature_list, n_recommendations=8):  # Modify this line
+    neighbors = NearestNeighbors(n_neighbors=n_recommendations + 1, algorithm='brute', metric='cosine')
     neighbors.fit(feature_list)
 
     distances, indices = neighbors.kneighbors([features])
 
     return indices, distances
+
 
 
 if not os.path.exists('uploads'):
@@ -142,47 +162,67 @@ if uploaded_file is not None:
         # display the file
         display_image = Image.open(uploaded_file)
         st.image(display_image)
+        show_original_image = st.checkbox('Show original image alongside recommendations')  # Add this line
         # feature extract
         features = feature_extraction(os.path.join("uploads",uploaded_file.name),model)
         # st.text(features)
         # recommendention
-        indices, distances = recommend(features,feature_list)
+        # indices, distances = recommend(features,feature_list)
+        number_of_recommendations = st.slider('Number of recommendations:', min_value=1, max_value=10, value=5, step=1)
+        indices, distances = recommend(features, feature_list, number_of_recommendations)  # Modify this line
+
         show_stats = st.button("STATS FOR NERDS")
 
-        col1,col2,col3,col4,col5 = st.columns(5)
+        number_of_recommendations = 8  # Adjust this value as needed
+        columns = st.columns(1 + show_original_image * number_of_recommendations)
+        for i in range(number_of_recommendations):
+            if i == 0 and show_original_image:
+                columns[i].image(display_image)
+            else:
+                image_index = i - 1 if show_original_image else i
+                image_path = filenames[indices[0][image_index + 1]]
+                columns[i + show_original_image].image(Image.open(image_path))
+
+
 
        
-        with col1:
-            image_1 = Image.open(filenames[indices[0][0]])
-            st.image(image_1)
-        with col2:
-            image_2 = Image.open(filenames[indices[0][1]])
-            st.image(image_2)
-        with col3:
-            image_3 = Image.open(filenames[indices[0][2]])
-            st.image(image_3)
-        with col4:
-            image_4 = Image.open(filenames[indices[0][3]])
-            st.image(image_4)
-        with col5:
-            image_5 = Image.open(filenames[indices[0][4]])
-            st.image(image_5)
+        # with col1:
+        #     image_1 = Image.open(filenames[indices[0][0]])
+        #     st.image(image_1)
+        # with col2:
+        #     image_2 = Image.open(filenames[indices[0][1]])
+        #     st.image(image_2)
+        # with col3:
+        #     image_3 = Image.open(filenames[indices[0][2]])
+        #     st.image(image_3)
+        # with col4:
+        #     image_4 = Image.open(filenames[indices[0][3]])
+        #     st.image(image_4)
+        # with col5:
+        #     image_5 = Image.open(filenames[indices[0][4]])
+        #     st.image(image_5)
+
+
+
         if show_stats:
             st.write("Detailed information for the recommended products:")
-            for i, distance in enumerate(distances[0][1:]):
-                st.write(f"Product {i + 1}:")
-                st.write(f"Similarity score: {1 - distance:.4f}")
-                st.write(f"Filename: {filenames[indices[0][i]]}")
-                
-                img = Image.open(filenames[indices[0][i]])
-                img_dimensions = img.size
-                st.write(f"Image dimensions: {img_dimensions}")
-                
-                aspect_ratio = img_dimensions[0] / img_dimensions[1]
-                st.write(f"Aspect ratio: {aspect_ratio:.2f}")
+            for i, distance in enumerate(distances[0][1:1 + number_of_recommendations]):  # Modify this line
+                with st.expander(f"Product {i + 1}"):
+                    st.write(f"Product {i + 1}:")
+                    st.write(f"Similarity score: {1 - distance:.4f}")
+                    st.write(f"Filename: {filenames[indices[0][i]]}")
+                    
+                    img = Image.open(filenames[indices[0][i]])
+                    img_dimensions = img.size
+                    st.write(f"Image dimensions: {img_dimensions}")
+                    
+                    aspect_ratio = img_dimensions[0] / img_dimensions[1]
+                    st.write(f"Aspect ratio: {aspect_ratio:.2f}")
 
-                st.write(f"Index in feature list: {indices[0][i]}")
-                st.write(f"Raw distance score: {distance:.4f}")
-                st.write("")
+                    st.write(f"Index in feature list: {indices[0][i]}")
+                    st.write(f"Raw distance score: {distance:.4f}")
+                    st.write("Color palette:")
+                    display_color_palette(filenames[indices[0][i]])
+                    st.write("")
     else:
         st.header("Some error occured in file upload")
