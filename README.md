@@ -1,8 +1,6 @@
 # FashionGPT: AI-Powered Fashion Recommender System 
 
-Yo whats good boys! The "GPT" part is kinda part of a bigger project where ill be adding a chatbot assistant powered by GPT-NEOx as a private concierge. It will act as a guide + hype beast friend. 
-
-END OF JUNE: Wait for it 🥷🏻
+THE END IS OVER, Virgil Abloh is here
 
 
 ![Main Screen](images/new_iamge2.png) 
