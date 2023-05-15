@@ -1,5 +1,7 @@
 from colorthief import ColorThief  # Add this line
 import matplotlib.pyplot as plt  # Add this line
+from gtts import gTTS
+from tempfile import NamedTemporaryFile
 import streamlit as st
 import os
 from PIL import Image
@@ -33,6 +35,8 @@ st.set_page_config(
 )
 
 st.title('FashionGPT')
+
+
 
 page_route = ["Home", "About"]
 choice = st.sidebar.selectbox("Select Activity", page_route)
@@ -108,6 +112,8 @@ else:
    pass
 
 
+
+
 def save_uploaded_file(uploaded_file):
     try:
         with open(os.path.join('uploads',uploaded_file.name),'wb') as f:
@@ -180,28 +186,12 @@ if uploaded_file is not None:
                 columns[i].image(display_image)
             else:
                 image_index = i - 1 if show_original_image else i
-                image_path = filenames[indices[0][image_index + 1]]
-                columns[i + show_original_image].image(Image.open(image_path))
-
-
-
-       
-        # with col1:
-        #     image_1 = Image.open(filenames[indices[0][0]])
-        #     st.image(image_1)
-        # with col2:
-        #     image_2 = Image.open(filenames[indices[0][1]])
-        #     st.image(image_2)
-        # with col3:
-        #     image_3 = Image.open(filenames[indices[0][2]])
-        #     st.image(image_3)
-        # with col4:
-        #     image_4 = Image.open(filenames[indices[0][3]])
-        #     st.image(image_4)
-        # with col5:
-        #     image_5 = Image.open(filenames[indices[0][4]])
-        #     st.image(image_5)
-
+                # Check if image_index + 1 is within the range of indices
+                if image_index + 1 < len(indices[0]):
+                    image_path = filenames[indices[0][image_index + 1]]
+                    columns[i + show_original_image].image(Image.open(image_path))
+                else:
+                    st.warning(f"The magic lies within the numbers.")
 
 
         if show_stats:

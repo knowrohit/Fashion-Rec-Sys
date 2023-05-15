@@ -13,6 +13,8 @@ COPY features_list_for_prods.pkl /app
 COPY data /app/data
 
 # Install any needed packages specified in requirements.txt
+RUN pip install --upgrade pip
+RUN pip install tensorflow
 RUN pip install -r requirements.txt
 
 # Make port 8501 available to the world outside this container
@@ -23,3 +25,5 @@ ENV NAME World
 
 # Run app.py when the container launches
 CMD ["streamlit", "run", "--server.port", "8509", "app.py"]
+
+#docker run -p 8509:8509 my-streamlit-app
