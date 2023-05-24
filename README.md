@@ -1,4 +1,4 @@
-# FashionGPT: AI-Powered Fashion Recommender System 
+# FashionGPT: AI-Powered Fashion Recommender System & VirgilAblohGPT: Hypebeast Chatbot Assistant
 
 Yo whats good boys! The "GPT" part is kinda part of a bigger project where ill be adding a chatbot assistant powered by GPT-NEOx as a private concierge. It will act as a guide + hype beast friend. 
 
