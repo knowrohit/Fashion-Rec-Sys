@@ -1,4 +1,4 @@
-# FashionGPT: AI-Powered Fashion Recommender System & VirgilAblohGPT: Hypebeast Chatbot Assistant
+# FashionGPT: AI-Powered Fashion Recommender System & VirgilAblohGPT: Hypebeast Chatbot Assistant 🥷🏻🥶
 
 Yo, what's good, boys! This project combines two powerful components: FashionGPT, an AI-powered fashion recommender system, and VirgilAblohGPT, a fashion chatbot assistant powered by ChatGLM-6b. Together, they provide a comprehensive fashion experience, acting as your guide and hype beast friend.
 
