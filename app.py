@@ -1,5 +1,5 @@
 from colorthief import ColorThief  # Add this line
-import matplotlib.pyplot as plt  # Add this line
+import matplotlib.pyplot as plt  
 from gtts import gTTS
 from tempfile import NamedTemporaryFile
 import streamlit as st
