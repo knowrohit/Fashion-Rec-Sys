@@ -45,7 +45,7 @@ jobs:
     needs: build
     environment:
       name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+      url: 'https://fashiongpt-recom.azurewebsites.net'
 
     steps:
       - name: Download artifact from build job
