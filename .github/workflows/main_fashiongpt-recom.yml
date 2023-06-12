@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements_final.txt
         
-      # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
+      # Optional: Add step to run tests here (PyTest, Django test suites, and etc.)
       
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
