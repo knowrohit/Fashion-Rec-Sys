@@ -95,7 +95,6 @@ six==1.16.0
 smmap==5.0.0
 soupsieve==2.4.1
 streamlit==1.23.1
-streamlit-chat==0.0.2.2
 sympy==1.12
 tenacity==8.2.2
 tensorboard==2.12.3
@@ -108,7 +107,6 @@ threadpoolctl==3.1.0
 tokenizers==0.13.3
 toml==0.10.2
 toolz==0.12.0
-torch==2.0.1
 tornado==6.3.1
 tqdm==4.65.0
 transformers==4.29.2
