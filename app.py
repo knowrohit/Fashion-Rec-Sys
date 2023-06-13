@@ -162,7 +162,14 @@ def recommend(features, feature_list, n_recommendations=8):  # Modify this line
 
 if not os.path.exists('uploads'):
     os.makedirs('uploads')
-uploaded_file = st.file_uploader("Choose an image")
+option = st.selectbox('Choose how you want to upload an image', ('Please select', 'Upload image', 'Camera input'))
+
+uploaded_file = None
+if option == 'Upload image':
+    uploaded_file = st.file_uploader("Choose an image")
+elif option == 'Camera input':
+    uploaded_file = st.camera_input("Take a picture")
+
 if uploaded_file is not None:
     if save_uploaded_file(uploaded_file):
         # display the file
@@ -179,19 +186,37 @@ if uploaded_file is not None:
 
         show_stats = st.button("STATS FOR NERDS")
 
-        number_of_recommendations = 8  # Adjust this value as needed
-        columns = st.columns(1 + show_original_image * number_of_recommendations)
+        number_of_recommendations = 10  # Adjust this value as needed
+        # columns = st.columns(1 + show_original_image * number_of_recommendations)
+        columns = st.columns(number_of_recommendations)
+        image_width = 550  # Adjust this to desired width
+        image_height = 700  # Adjust this to desired height
+
         for i in range(number_of_recommendations):
             if i == 0 and show_original_image:
+                display_image = display_image.resize((image_width, image_height))
                 columns[i].image(display_image)
             else:
                 image_index = i - 1 if show_original_image else i
                 # Check if image_index + 1 is within the range of indices
                 if image_index + 1 < len(indices[0]):
                     image_path = filenames[indices[0][image_index + 1]]
-                    columns[i + show_original_image].image(Image.open(image_path))
-                else:
-                    st.warning(f"The magic lies within the numbers.")
+                    img = Image.open(image_path)
+                    img = img.resize((image_width, image_height))
+                    columns[i].image(img)
+
+
+        # for i in range(number_of_recommendations):
+        #     if i == 0 and show_original_image:
+        #         columns[i].image(display_image)
+        #     else:
+        #         image_index = i - 1 if show_original_image else i
+        #         # Check if image_index + 1 is within the range of indices
+        #         if image_index + 1 < len(indices[0]):
+        #             image_path = filenames[indices[0][image_index + 1]]
+        #             columns[i + show_original_image].image(Image.open(image_path))
+        #         else:
+        #             st.warning(f"The magic lies ithin the numbers.")
 
 
         if show_stats:
