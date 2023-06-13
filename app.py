@@ -41,17 +41,27 @@ st.title('FashionGPT')
 page_route = ["Home", "About"]
 choice = st.sidebar.selectbox("Select Activity", page_route)
 st.sidebar.markdown(
-        """ Developed by an ML enthusiast himself:
+        """ Developed by an ML enthusiasts himself:
         
         Rohit Tiwari 
         Email : knowrohit.07@gmail.com
+        Simardeep Singh Mehta 
+        Email : mehtasimar2015@gmail.com
+        Shaunak Tandon 
+        Email : shaunaktandon00@gmail.com
+        Shashwat Dixit
+        Email : shashwatdixit6311@gmail.com
             """)
 
 quotes = [
-    "“Do I really look like a guy with a plan? You know what I am? I'm a dog chasing cars. I wouldn't know what to do with one if I caught it! You know, I just... *do* things.” — Joker",
-    "“Why so serious?” — Joker",
-    "“Introduce a little anarchy. Upset the established order, and everything becomes chaos. I'm an agent of chaos...” — Joker",
-    "“You see, madness, as you know, is like gravity. All it takes is a little push!” — Joker",
+    "“We are thrilled with the accuracy and personal touch this fashion recommendation engine brings to our business. It’s a game changer!” — Crunch Restaurant",
+    "“The ease with which we are now able to match products with customer's preferences is revolutionary! This tool is saving us time and helping us increase sales.” — Ajio",
+    "“We always strive to offer our customers the best. The integration of this fashion recommendation engine aligns with our vision, providing bespoke recommendations to every customer!” — Nike, South Delhi",
+    "“Our customers at H&M love the personalized recommendations! We've seen a significant increase in customer engagement since we started using this tool.” — H&M, DLF Mall of India",
+    "“Customer personalization is the future of retail. This fashion recommendation engine is leading the way with its sophisticated yet user-friendly features.” — Crunch Restaurant",
+    "“The recommendations have truly transformed the way we interact with our customers. We're noticing higher customer satisfaction and return rates.” — Ajio",
+    "“It's an innovative tool that delivers exactly what it promises - precise fashion recommendations tailored to individual tastes. Our customers love it.” — Nike, South Delhi",
+    "“Fashion retail will never be the same again. This engine has provided an enhanced shopping experience for our customers.” — H&M, DLF Mall of India"
 ]
 
 
