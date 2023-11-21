@@ -6,7 +6,7 @@ Yo, what's good, boys! This project combines two powerful components: FashionGPT
 
 ![Main Screen](images/new_iamge2.png) 
 
-## How it Works
+## How it Work
 
 FashionGPT uses a pre-trained ResNet50 model as a feature extractor to analyze the visual aspects of a user's selected image. It then compares the extracted features with a database of product images to find the most visually similar items. The Nearest Neighbors algorithm is employed to identify the top matching products based on their similarity scores. Users can choose to display the original image alongside the recommendations for easy comparison and can adjust the number of recommendations displayed. Additional product information and color palettes are also available for each recommendation.
 
